@@ -1,111 +1,199 @@
-.App {
-  text-align: center;
-  /* display: flex; */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
   height: 100vh;
-  background-color: #def7fe;
+  overflow: hidden;
+  background-color: black;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+body * {
+
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Menubar {
+  height: 100vh;
+  width: 4.2rem;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start;
+  transition: 0.3s width;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.Munebar{
-  background-color: white;
-  border-radius:15px 15px 0 0 ;
-  -webkit-border-radius:0 15px 15px 0 ;
-  -moz-border-radius:15px 15px 0 0 ;
-  -ms-border-radius:15px 15px 0 0 ;
-  -o-border-radius:15px 15px 0 0 ;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 20px;
-  box-shadow: 0px 0px 10px 1px rgba(120, 120, 120, 0.112);
-  position: relative;
-  transition: .4s;
-  -webkit-transition: .4s;
-  -moz-transition: .4s;
-  -ms-transition: .4s;
-  -o-transition: .4s;
-}
-.Content{
-
-  display: flex;align-items: center;justify-content: center;
-}
-.btntheme{
-    bottom: 10%;
-    left: 4.5%;
-
-}
-.btn{
-  position: absolute;
-  z-index: 10;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0 0 2px 2px rgba(201, 200, 200, 0.256);
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-}
-.BtnMenu{
-  right: -20px;
-}
-.parent{
-  display: flex;height: 100%;
-}
-.svg{
-width: 20px;height:20px;
-/* margin: 10px 0 -6px 0; */
-}
-.Mainsvg{
-width: 50px;
-margin-bottom: 40px;
-}
-.linkRout{
-text-decoration: none;
-text-transform: capitalize;
-font-size: 12px;
-}
-body span{
-text-transform: capitalize;
-opacity: .6;
-font-size: 14px;
-font-family: serif;
-
-
-}
-.li{
+.boxicon-container {
+  width: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: flex-start;
-  margin: 15px 0 5px 0;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.boxicon {
+  width: 20px;height: 20px;
+  margin: 0.8rem;
+  animation-iteration-count: 1;
+  z-index: 2;
+}
+
+.first-and-last-trash-fix {
+  margin: 0.8rem;
+}
+
+/* .active {
+  background-color: red;
+} */
+
+.active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 95%;
+  background-color: rgba(66, 66, 207, 0.194);
+  opacity: 1;
+  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -0.25rem;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+.boxicon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 95%;
+  background-color: rgba(66, 66, 207, 0.194);
+  opacity: 0;
+  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -0.25rem;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+.boxicon-container:hover > .boxicon::after {
+  opacity: 1;
+  transition: 0.1s;
+}
+
+.Menubar > *:first-child {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: end;
+  right: -20px;
+  border-radius:5px ;
+  -webkit-border-radius:5px ;
+  -moz-border-radius:5px ;
+  -ms-border-radius:5px ;
+  -o-border-radius:5px ;
+  padding: 0;
+  
+}
+.Menubar > *:first-child>* {
+  width: auto;
+  padding: 0;
+  
+}
+.Menubar > *:last-child {
+  margin-top: auto;
+  margin-bottom: 2rem;
+}
+
+.final-icon {
+  background-color: red;
+}
+
+.description {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3.5rem;
+  z-index: 10;
+  font-weight: bold;
+  margin: 0;
+  color: rgb(20, 20, 179);
+  transition: 0.2s opacity;
+}
+
+/* .active-description {
+  color: white;
+} */
+
+.expanded {
+  width: 13rem;
+  align-items: flex-start;
+}
+
+.show-description {
+  opacity: 1;
+}
+
+.container {
+  display: flex;
+}
+
+.text {
+  /* color: white; */
+  z-index: 100;
+  margin: 0 auto;
+  align-self: center;
+  font-size: 32px;
+}
+
+@media screen and (max-height: 550px) {
+  .boxicon {
+    margin-left: 1.2rem;
+  }
+  .first-and-last-trash-fix {
+    margin-left: 1.2rem;
+  }
+}
+
+.btntheme{
+  position: absolute;
+  bottom: 64px;
+  left: 3rem;
+  border: none;
+  background-color: none;
+  cursor: pointer;
+  ;
+}
+.svgbulb{
+  position: absolute;
+  bottom: -1px;
+  left: -2rem;
+}
+/* .link{
+  width: 20%;height: 100%;
+} */
+.Menubar span{
+  margin: 20px 0 0 10px;
 }

@@ -2,12 +2,15 @@ import './App.css';
 
 import React, { useState } from 'react'
 
-import Munebar from "./Component/Menubar";
+import Menubar from "./Component/Menubar";
 import Content from "./Component/Content";
 
 import ThemeComponent, { themes } from './ThemeComponent'
 
 import {BrowserRouter as Router} from "react-router-dom";
+
+import { ReactComponent as Bulb } from './bulb.svg';
+
 
 
 function App() {
@@ -19,15 +22,16 @@ function App() {
      <Router>
       <ThemeComponent.Provider value = {theme} >
          
-
               <section className='parent'>
-
-                <Munebar/>
+       
+                <Menubar/>
                 {theme === themes.light ? (
-              <button className='btntheme btn'  style={{...theme}} onClick={() => setTheme(themes.dark)}>Dark Mood</button>
-            ) : (
-              <button className='btntheme btn'  style={{...theme}} onClick={() => setTheme(themes.light)}>Light Mood</button>
-            )}
+                  
+                  <button className='btntheme btn '  style={{...theme}} onClick={() => setTheme(themes.dark)}><Bulb/></button>
+                ) : (
+                  <button className='btntheme btn'  style={{...theme}} onClick={() => setTheme(themes.light)}><Bulb/></button>
+                )}
+             
                 <Content/>
               </section>
 
