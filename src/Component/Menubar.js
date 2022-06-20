@@ -9,7 +9,7 @@ import { ReactComponent as MyLogo } from '../logo.svg';
 const toggles = {
     
   open: {
-    display: "block" 
+    display: "inLine" 
      
   },
   close: {
@@ -38,27 +38,19 @@ export default function Munebar() {
     
                   )}
 
-{/* ........................................................... */}
-                    <MyLogo style={{...theme}} />
-{/* ........................................................... */}
+                    <MyLogo className='Mainsvg' style={{...theme}} />
 
                     <span>analytics</span>
 
-                    <div>
-                      <MyLogo style={{...theme}} /><Link style={{...toggle}} className='linkRout' to='#'>dashboard</Link></div>
+                    <div className='li'>
+                      <MyLogo style={{...theme}} /><Link style={{...toggle}} className='linkRout' to='#'>dashboard</Link>
+                      </div>
 
-                    <div>
+                    <div className='li'>
                       <MyLogo style={{...theme}} /><Link style={{...toggle}} className='linkRout' to='#'>performance</Link>
                       </div>
 
-                    <span>content</span>
-
-                    <div>
-                      <MyLogo style={{...theme}} /><Link style={{...toggle}} className='linkRout' to='#'>customization</Link>
-                      </div>
-                    <div>
-                      <MyLogo style={{...theme}} /><Link style={{...toggle}} className='linkRout'  to='#'>segment</Link>
-                      </div>
+               
              
             
                     </div>
