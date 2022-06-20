@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
 
+import React, { useState } from 'react'
+
+import Munebar from "./Component/Menubar";
+import Content from "./Component/Content";
+
+import ThemeComponent, { themes } from './ThemeComponent'
+
+import {BrowserRouter as Router} from "react-router-dom";
+
+
 function App() {
+   
+  const [theme, setTheme] = useState(themes.light)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router>
+      <ThemeComponent.Provider value = {theme} >
+         
+
+              <section className='parent'>
+
+                <Munebar/>
+                {theme === themes.light ? (
+              <button className='btntheme btn'  style={{...theme}} onClick={() => setTheme(themes.dark)}>Dark Mood</button>
+            ) : (
+              <button className='btntheme btn'  style={{...theme}} onClick={() => setTheme(themes.light)}>Light Mood</button>
+            )}
+                <Content/>
+              </section>
+
+      </ThemeComponent.Provider>
+      </Router>
+
     </div>
   );
 }
